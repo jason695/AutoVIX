@@ -19,7 +19,7 @@ namespace AutoVIX
             MemoryStream ms = new MemoryStream(client.DownloadData("http://tw.stock.yahoo.com/q/q?s=2317"));  // 使用預設編碼讀入 HTML  
             
             HtmlDocument doc = new HtmlDocument();
-            doc.Load(ms, Encoding.Default);  // 裝載第一層查詢結果  
+            doc.Load(ms, Encoding.GetEncoding(950));  // 裝載第一層查詢結果  
             
             HtmlDocument docStockContext = new HtmlDocument(); 
             docStockContext.LoadHtml(doc.DocumentNode.SelectSingleNode(
@@ -40,7 +40,8 @@ namespace AutoVIX
             docStockContext = null;
             client = null;
             ms.Close(); Console.WriteLine("Completed.");
-            Console.ReadLine(); 
+            Console.ReadLine();
+
         }
     }
 }
