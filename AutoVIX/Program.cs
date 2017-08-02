@@ -29,8 +29,7 @@ namespace AutoVIX
             // 取得個股數值  
             string[] values = docStockContext.DocumentNode.SelectSingleNode("./tr[2]").InnerText.Trim().Split('\n');
             
-            int i = 0;  // 輸出資料  
-            
+            int i = 0;  // 輸出資料              
             foreach (HtmlNode nodeHeader in nodeHeaders)
             {
                 Console.WriteLine("Header: {0}, Value: {1}",nodeHeader.InnerText, values[i].Trim());
